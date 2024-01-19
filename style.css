@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  outline: none;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #F1F4F5;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.corpo {
+  margin-left: 15px;
+}
+
+
+.botao_registrarvalor {
+  background-color: #694ED8;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 208px;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  display: flex;
+  align-items: baseline;
+}
+
+.logo-part1 {
+  color: #694ED8;
+}
+
+.logo-part2 {
+  color: #7a7979;
+}
+
+main {
+  max-width: 550px;
+  width: 100%;
+  margin-top: 60px;
+  /* Adjusted margin to accommodate the fixed header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resume {
+  display: flex;
+  padding: 10px 0;
+  gap: 40px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.resume>div {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 150px;
+}
+
+.newItem {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  width: 100%;
+  justify-content: flex-start;
+  /* Ajuste o alinhamento conforme necessário */
+  flex-wrap: wrap;
+}
+
+.divDesc,
+.divType,
+.divAmount {
+  display: flex;
+  flex-direction: column;
+}
+
+.newItem>button {
+  background-color: #2C73D2;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 34px;
+}
+
+input,
+select {
+  padding: 5px;
+}
+
+
+
+
+.divTable {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 98%;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+th {
+  text-align: start;
+  border-bottom: inset;
+  padding-bottom: 5px;
+}
+
+i {
+  font-size: 25px;
+}
+
+.bxs-chevron-up-circle {
+  color: #00C9A7;
+}
+
+.bxs-chevron-down-circle {
+  color: #D83121;
+}
+
+.columnAction {
+  width: 40px;
+  text-align: center;
+}
+
+.columnAction>button {
+  background: transparent;
+  border: none;
+}
+
+.columnAmount {
+  width: 30%;
+}
+
+.columnType {
+  width: 80px;
+  text-align: center;
+}
+
+.divDate {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  /* Adicionado espaço à direita para separar Tipo e Data */
+}
+
+.columnData {
+  width: 100px;
+  /* Ajuste a largura conforme necessário */
+}
+
+.filtro-por-tempo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.date-filter {
+  display: flex;
+  gap: 10px;
+}
