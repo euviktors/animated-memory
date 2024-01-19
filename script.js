@@ -5,11 +5,36 @@ const type = document.querySelector("#type");
 const date = document.querySelector("#date");
 const btnNew = document.querySelector("#btnNew");
 
-const incomes = document.querySelector(".incomes");
-const expenses = document.querySelector(".expenses");
-const total = document.querySelector(".total");
+const incomesSpan = document.getElementById("incomes");
+const expensesSpan = document.getElementById("expenses");
+const totalSpan = document.getElementById("total");
+
+const startDate = document.getElementById("startDate");
+const endDate = document.getElementById("endDate");
+const searchBtn = document.getElementById("searchBtn");
+const updateBtn = document.getElementById("updateBtn");
 
 let items = [];
+
+btnNew.onclick = () => {
+  if (descItem.value === "" || amount.value === "" || type.value === "" || date.value === "") {
+    return alert("Preencha todos os campos!");
+  }
+
+  items.push({
+    desc: descItem.value,
+    amount: Math.abs(amount.value).toFixed(2),
+    date: date.value,
+    type: type.value,
+  });
+
+  setItensBD();
+  loadItens();
+
+  descItem.value = "";
+  amount.value = "";
+  date.value = "";
+};
 
 function deleteItem(index) {
   items.splice(index, 1);
@@ -66,14 +91,10 @@ function getTotals() {
 
   const totalItems = (totalIncomes - totalExpenses).toFixed(2);
 
-  incomes.innerHTML = totalIncomes;
-  expenses.innerHTML = totalExpenses;
-  total.innerHTML = totalItems;
+  incomesSpan.innerHTML = totalIncomes;
+  expensesSpan.innerHTML = totalExpenses;
+  totalSpan.innerHTML = totalItems;
 }
-const startDate = document.getElementById("startDate");
-const endDate = document.getElementById("endDate");
-const searchBtn = document.getElementById("searchBtn");
-const updateBtn = document.getElementById("updateBtn");
 
 searchBtn.onclick = () => {
   const start = new Date(startDate.value);
@@ -97,7 +118,6 @@ updateBtn.onclick = () => {
   renderFilteredItems(items);
 };
 
-// Adicionando a função para renderizar os itens filtrados
 function renderFilteredItems(filteredItems) {
   tbody.innerHTML = "";
   filteredItems.forEach((item, index) => {
@@ -106,26 +126,10 @@ function renderFilteredItems(filteredItems) {
 
   getTotals();
 }
+
 const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) || [];
 const setItensBD = () => localStorage.setItem("db_items", JSON.stringify(items));
 
-btnNew.onclick = () => {
-  if (descItem.value === "" || amount.value === "" || type.value === "" || date.value === "") {
-    return alert("Preencha todos os campos!");
-  }
-
-  items.push({
-    desc: descItem.value,
-    amount: Math.abs(amount.value).toFixed(2),
-    date: date.value,
-    type: type.value,
-  });
-
-  setItensBD();
-
-  loadItens();
-
-  descItem.value = "";
-  amount.value = "";
-  date.value = "";
-};
+// Configuração inicial
+loadItens();
+getTotals();
